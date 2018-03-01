@@ -2,6 +2,8 @@
 
 ## Instructions
 
+* Install Ruby
+
 * Run app
 
     ```ruby
