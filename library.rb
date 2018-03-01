@@ -1,7 +1,7 @@
 module Library 
     module_function
     def getlibrary
-        array = [
+        default_list = [
             "Code Dance",
             "Macarena", 
             "Gangnam Style", 
@@ -21,9 +21,11 @@ module Library
             "Twist",
             "Gabber",
             "Dab",
-            "Dougie"
+            "Dougie",
+            "Flare",
+            "Windmill"
         ]
-        return array
+        return default_list
     end
 end
 

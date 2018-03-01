@@ -5,7 +5,7 @@ require 'columnize'
 
 library_data = Library::getlibrary 
 
-module Draft4
+module DanceParty
     module_function
     OPTION_DANCE = 1
     OPTION_LIST = 2
@@ -17,45 +17,45 @@ module Draft4
     end
 
     def welcome
-    puts "It's time to get down!"
+    puts "It's time to get down!".colorize(:yellow)
     end
 
     def prompt
-        puts "What would you like to do?
-        (options: 1. Dance -- 2. List Dances -- 3. Add a dance -- 4. Exit)"
+        puts "What would you like to do?".colorize(:yellow)
+        puts "(options: 1. Dance -- 2. List Dances -- 3. Add a dance -- 4. Exit)"
         
         gets.chomp.to_i
     end
-# clear
+
     def start(library_data)
-        
+        welcome
         option = prompt
         if option == OPTION_DANCE
             clear
-            puts "Do the #{library_data.sample}"
+            puts "Do the #{library_data.sample.colorize(:light_blue)}"
             
-            Draft4.start(library_data)
+            DanceParty.start(library_data)
 
         elsif option == OPTION_LIST
             clear
             puts library_data.columnize :displaywidth => 50, :colsep => ' | '   
-            Draft4.start(library_data)
+            DanceParty.start(library_data)
         
         elsif option == OPTION_ADD
             clear
             AddDance.add_dance(library_data)
-            Draft4.start(library_data)
+            DanceParty.start(library_data)
         elsif 
             option == OPTION_EXIT
             clear
-            puts "Peace out!"
+            puts "Peace out!".colorize(:blue)
         else
             puts "invalid option number".colorize(:red)
-            Draft4.start(library_data)
+            DanceParty.start(library_data)
         end
     end
             
 end
 
-Draft4.welcome
-Draft4.start(library_data)
+
+DanceParty.start(library_data)
